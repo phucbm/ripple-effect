@@ -9,6 +9,8 @@ emphasis.
 [![github stars](https://badgen.net/github/stars/phucbm/ripple-effect?icon=github)](https://github.com/phucbm/ripple-effect/)
 [![github license](https://badgen.net/github/license/phucbm/ripple-effect?icon=github)](https://github.com/phucbm/ripple-effect/blob/main/LICENSE)
 
+![Screen Recording 2025-07-13 at 18 35 54](https://github.com/user-attachments/assets/afce54ce-a80c-4fb4-8575-6eed833a1ab4)
+
 ## Installation
 
 ```bash
