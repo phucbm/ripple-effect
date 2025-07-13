@@ -1,0 +1,66 @@
+{
+  "name": "@phucbm/ripple-effect",
+  "version": "0.0.1",
+  "description": "A TypeScript utility package",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && tsup",
+    "clean": "rm -rf dist",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "typescript",
+    "utility",
+    "javascript",
+    "ripple-effect"
+  ],
+  "author": {
+    "name": "phucbm",
+    "url": "https://github.com/phucbm"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phucbm/ripple-effect"
+  },
+  "bugs": {
+    "url": "https://github.com/phucbm/ripple-effect/issues"
+  },
+  "homepage": "https://github.com/phucbm/ripple-effect",
+  "devDependencies": {
+    "@phucbm/banner": "^0.0.2",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.12",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
+    "ts-jest": "^29.4.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "sideEffects": false
+}
