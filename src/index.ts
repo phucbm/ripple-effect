@@ -53,8 +53,13 @@ export function applyRippleEffect({
 
         let normalizedValue: number;
         if (distance <= rippleRadius) {
-            // Calculate normalized value: 1 at center, decreasing linearly to 0 at edge
-            normalizedValue = Math.max(0, 1 - (distance / rippleRadius));
+            if (rippleRadius === 0) {
+                // Special case: only center element gets value 1.0
+                normalizedValue = distance === 0 ? 1.0 : 0.0;
+            } else {
+                // Calculate normalized value: 1 at center, decreasing linearly to 0 at edge
+                normalizedValue = Math.max(0, 1 - (distance / rippleRadius));
+            }
         } else {
             normalizedValue = 0;
         }
