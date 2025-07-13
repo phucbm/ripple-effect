@@ -1,6 +1,6 @@
 interface RippleEffectParams {
     /** The total number of elements to apply the ripple effect to */
-    elements: number;
+    length: number;
     /** The index of the center element (focal point of the ripple) */
     centerIndex: number;
     /** The radius of the ripple effect (how many elements around center are affected) */
@@ -22,7 +22,7 @@ interface RippleEffectParams {
  * - Elements outside the radius receive value 0.0
  *
  * @param params - Configuration object for the ripple effect
- * @param params.elements - Total number of elements to process
+ * @param params.length - Total number of elements to process
  * @param params.centerIndex - Index of the center element (focal point)
  * @param params.rippleRadius - How many elements around center are affected (default: 3)
  * @param params.callback - Function called for each element with normalized value and index
@@ -31,7 +31,7 @@ interface RippleEffectParams {
  * ```typescript
  * // Scale animation example
  * applyRippleEffect({
- *   elements: 10,
+ *   length: 10,
  *   centerIndex: 5,
  *   rippleRadius: 3,
  *   callback: (normalizedValue, index) => {
@@ -42,13 +42,13 @@ interface RippleEffectParams {
  * ```
  */
 export function applyRippleEffect({
-                                      elements,
+                                      length,
                                       centerIndex,
                                       rippleRadius = 3,
                                       callback
                                   }: RippleEffectParams): void {
     // Apply ripple effect to all elements
-    for (let i = 0; i < elements; i++) {
+    for (let i = 0; i < length; i++) {
         const distance = Math.abs(i - centerIndex);
 
         let normalizedValue: number;

@@ -10,7 +10,7 @@ describe('applyRippleEffect', () => {
     describe('Basic Functionality', () => {
         test('center element receives value 1.0', () => {
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: 2,
                 rippleRadius: 2,
                 callback: mockCallback
@@ -23,7 +23,7 @@ describe('applyRippleEffect', () => {
 
         test('values decrease linearly from center', () => {
             applyRippleEffect({
-                elements: 7,
+                length: 7,
                 centerIndex: 3,
                 rippleRadius: 3,
                 callback: mockCallback
@@ -42,7 +42,7 @@ describe('applyRippleEffect', () => {
 
         test('elements outside radius receive 0', () => {
             applyRippleEffect({
-                elements: 10,
+                length: 10,
                 centerIndex: 5,
                 rippleRadius: 2,
                 callback: mockCallback
@@ -60,7 +60,7 @@ describe('applyRippleEffect', () => {
     describe('Edge Cases', () => {
         test('single element', () => {
             applyRippleEffect({
-                elements: 1,
+                length: 1,
                 centerIndex: 0,
                 rippleRadius: 1,
                 callback: mockCallback
@@ -72,7 +72,7 @@ describe('applyRippleEffect', () => {
 
         test('center at first element (asymmetric ripple)', () => {
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: 0,
                 rippleRadius: 2,
                 callback: mockCallback
@@ -88,7 +88,7 @@ describe('applyRippleEffect', () => {
 
         test('center at last element (asymmetric ripple)', () => {
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: 4,
                 rippleRadius: 2,
                 callback: mockCallback
@@ -106,7 +106,7 @@ describe('applyRippleEffect', () => {
     describe('Radius Variations', () => {
         test('rippleRadius = 0 (only center affected)', () => {
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: 2,
                 rippleRadius: 0,
                 callback: mockCallback
@@ -122,7 +122,7 @@ describe('applyRippleEffect', () => {
 
         test('rippleRadius = 1', () => {
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: 2,
                 rippleRadius: 1,
                 callback: mockCallback
@@ -138,7 +138,7 @@ describe('applyRippleEffect', () => {
 
         test('large rippleRadius (larger than available elements)', () => {
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: 2,
                 rippleRadius: 10,
                 callback: mockCallback
@@ -154,7 +154,7 @@ describe('applyRippleEffect', () => {
 
         test('default rippleRadius should be 3', () => {
             applyRippleEffect({
-                elements: 7,
+                length: 7,
                 centerIndex: 3,
                 callback: mockCallback
             });
@@ -173,7 +173,7 @@ describe('applyRippleEffect', () => {
             testCases.forEach(elementCount => {
                 mockCallback.mockReset();
                 applyRippleEffect({
-                    elements: elementCount,
+                    length: elementCount,
                     centerIndex: Math.floor(elementCount / 2),
                     rippleRadius: 2,
                     callback: mockCallback
@@ -185,7 +185,7 @@ describe('applyRippleEffect', () => {
 
         test('callback receives correct parameter types and ranges', () => {
             applyRippleEffect({
-                elements: 10,
+                length: 10,
                 centerIndex: 5,
                 rippleRadius: 3,
                 callback: mockCallback
@@ -207,7 +207,7 @@ describe('applyRippleEffect', () => {
 
         test('indices go from 0 to elements-1', () => {
             applyRippleEffect({
-                elements: 7,
+                length: 7,
                 centerIndex: 3,
                 rippleRadius: 2,
                 callback: mockCallback
@@ -223,7 +223,7 @@ describe('applyRippleEffect', () => {
             const results: Array<{ index: number, value: number }> = [];
 
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: 2,
                 rippleRadius: 2,
                 callback: (value, index) => {
@@ -238,7 +238,7 @@ describe('applyRippleEffect', () => {
 
         test('linear interpolation formula is correct', () => {
             applyRippleEffect({
-                elements: 11,
+                length: 11,
                 centerIndex: 5,
                 rippleRadius: 5,
                 callback: mockCallback
@@ -265,7 +265,7 @@ describe('applyRippleEffect', () => {
 
         test('Math.max ensures no negative values', () => {
             applyRippleEffect({
-                elements: 10,
+                length: 10,
                 centerIndex: 5,
                 rippleRadius: 2,
                 callback: mockCallback
@@ -282,7 +282,7 @@ describe('applyRippleEffect', () => {
             const results: number[] = [];
 
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: 2,
                 rippleRadius: 1,
                 callback: (normalizedValue, index) => {
@@ -297,7 +297,7 @@ describe('applyRippleEffect', () => {
             const expectedValues = [0, 0.5, 1.0, 0.5, 0];
 
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: 2,
                 rippleRadius: 2,
                 callback: mockCallback
@@ -320,7 +320,7 @@ describe('applyRippleEffect', () => {
             // it will throw. If it does handle them, it should continue.
             expect(() => {
                 applyRippleEffect({
-                    elements: 5,
+                    length: 5,
                     centerIndex: 2,
                     rippleRadius: 2,
                     callback: errorCallback
@@ -335,7 +335,7 @@ describe('applyRippleEffect', () => {
     describe('Boundary Conditions', () => {
         test('zero elements', () => {
             applyRippleEffect({
-                elements: 0,
+                length: 0,
                 centerIndex: 0,
                 rippleRadius: 1,
                 callback: mockCallback
@@ -346,7 +346,7 @@ describe('applyRippleEffect', () => {
 
         test('negative centerIndex (edge case)', () => {
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: -1,
                 rippleRadius: 2,
                 callback: mockCallback
@@ -360,7 +360,7 @@ describe('applyRippleEffect', () => {
 
         test('centerIndex beyond elements', () => {
             applyRippleEffect({
-                elements: 5,
+                length: 5,
                 centerIndex: 10,
                 rippleRadius: 3,
                 callback: mockCallback

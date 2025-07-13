@@ -1,7 +1,7 @@
 {
   "name": "@phucbm/ripple-effect",
   "version": "0.0.1",
-  "description": "A TypeScript utility package",
+  "description": "A TypeScript utility for applying a ripple effect to a set of elements.",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
