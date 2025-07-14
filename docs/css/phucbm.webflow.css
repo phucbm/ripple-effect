@@ -1,0 +1,53 @@
+:root {
+  --electric-blue: #06f;
+  --vibrant-green: #0f8;
+  --deep-black: #0a0a0a;
+  --pure-white: white;
+}
+
+.hero-banner {
+  background-color: #f8f9fa;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.hero-heading {
+  color: var(--electric-blue);
+  text-align: right;
+  text-transform: uppercase;
+  font-family: Cascadia Code, sans-serif;
+  font-size: 90px;
+  font-weight: 700;
+  line-height: .7em;
+}
+
+.hero-heading.creative {
+  color: var(--vibrant-green);
+}
+
+.hero-heading-line {
+  display: flex;
+}
+
+.hero-heading-line.right {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.div-block-2 {
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+}
+
+.hero-heading-wrap {
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  flex-flow: column;
+  display: flex;
+}
+
+
